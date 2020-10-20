@@ -9,10 +9,126 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Home</title>
+    <style>
+        .div-header {
+            background-image: linear-gradient(#0068b9, #efefe8);
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .conatiner-grid{
+           width:1200px;
+           margin:0px auto;
+        }
+        .select-header {
+            margin-top:20px;
+            margin-bottom:10px;
+            padding: 10px;
+        }
+        .drp-position {
+            width: 135px;
+            height: 30px;
+        }
+        .tr-tbl {
+            background-image: linear-gradient(#0068b9, #efefe8);
+            color:#ffffff;
+        }
+    </style>
 </head>
+
 <body>
-    <div> 
-        <h1>Welcome @ViewBag.UserName</h1>
+    <div class="container">
+        
+        <div class="row">
+            <div class="div-header">
+                <img src="~/Images/logo.png" style="width: 80px;  height:80px; float:left; margin-left:70px;" />
+                <h1 style=" margin-right: 8%;">Lab Samples </h1>
+            </div>
+            <div class="conatiner-grid">
+                <div class="select-header">
+                    <div class="form-group has-feedback col-md-12 ">
+                       <label>Product</label> <select class="form-control  drp-position">
+    <option value="0">---Select---</option>
+    <option value="1">Product Line</option>
+    <option value="2">Product Unit</option>
+    <option value="3">Product Name</option>
+</select>
+                    </div>
+                </div>
+                <table class="table" style="font-size: 14px; font-weight: 200;">
+                    <thead  style="text-align:left;">
+                        <tr class="tr-tbl">
+                            <th style="width:150px; padding:2px;">Sample Taken By</th>
+                            <th style="width:150px; padding:2px;">Date Sample Taken </th>
+                            <th style="width: 150px; padding: 2px;">Time Sample Taken</th>
+                            <th style="width: 150px; padding: 2px;">Sample Type</th>
+                            <th style="width: 150px; padding: 2px;">Sample Status</th>
+                            <th style="width: 150px; padding: 2px;">Sample Delivered To Lab By</th>
+                            <th style="width: 150px; padding: 2px;">Date Sample Delivered To Lab</th>
+                            <th style="width: 150px; padding: 2px;">Time Sample Delivered To Lab</th>
+                            <th style="width: 150px; padding: 2px;">Sample Given To</th>
+                            <th style="width: 150px; padding: 2px;">Date QC Tests Completed</th>
+                            <th style="width: 150px; padding: 2px;">Time QC Tests Completed</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left;">
+                        <tr style="        background-color: #f1f1f1;">
+                            <th style="width: 150px; padding: 2px;">Bernard</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">11:20 AM</th>
+                            <th style="width: 150px; padding: 2px;">Normal</th>
+                            <th style="width: 150px; padding: 2px;">Taken</th>
+                            <th style="width: 150px; padding: 2px;">Joy</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">12:00 PM</th>
+                            <th style="width: 150px; padding: 2px;">John</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">11:20 AM</th>
+                            <th style="width: 150px; padding: 2px;">Normal</th>
+                            <th style="width: 150px; padding: 2px;">Deliverd to Lab</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">2:00 PM</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style ="width: 150px; padding: 2px;"></th>
+</tr>
+                        <tr style="        background-color: #f1f1f1;">
+                            <th style="width: 150px; padding: 2px;">Lily</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">12:00 PM</th>
+                            <th style="width: 150px; padding: 2px;"">Normal</th>
+                            <th style="width: 150px; padding: 2px;">Taken</th>
+                            <th style="width: 150px; padding: 2px;">Joy1</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">1:00 PM</th>
+                            <th style="width: 150px; padding: 2px;">Tom</th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                        </tr>
+                        <tr>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">3:00 PM</th>
+                            <th style="width: 150px; padding: 2px;">Normal</th>
+                            <th style="width: 150px; padding: 2px;">Deliverd to Lab</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;">20/10/2020</th>
+                            <th style="width: 150px; padding: 2px;">5:00 PM</th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                            <th style="width: 150px; padding: 2px;"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 </html>
