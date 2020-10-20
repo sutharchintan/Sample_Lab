@@ -1,0 +1,276 @@
+﻿@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="M_Adnan">
+    <title>Registration</title>
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="~/Front/rs-plugin/css/settings.css" media="screen" />
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Front/css/style.css" rel="stylesheet" />
+
+    <link href="~/Front/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Front/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Front/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Front/css/main.css" rel="stylesheet">
+    <link href="~/Front/css/responsive.css" rel="stylesheet">
+    <!-- JavaScripts -->
+    <script src="~/Front/js/modernizr.js"></script>
+
+
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="~/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link href="~/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link href="~/bower_components/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print" />
+    <link href="~/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+
+    <link href="~/plugins/parsleystyle.css" rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115338154-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115338154-8');
+    </script>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <section class="content-header">
+        <h1 style="text-align:center;">
+            Registration
+        </h1><br />
+    </section>
+    <div class="box box-default" @*style="overflow-y:scroll"*@>
+        <form class="form-horizontal" id="frmUser">
+            <div class="box-body">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputfname" class="col-sm-4 control-label">First Name<span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="UserFirstName" id="UserFirstName" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputlname" class="col-sm-4 control-label">Last Name<span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="UserLastName" id="UserLastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputcontactno" class="col-sm-4 control-label">Mobile</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="CellNo" id="CellNo" maxlength="14" placeholder="Mobile number">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputemail" class="col-sm-4 control-label">City</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="Email" id="txtcity" maxlength="200" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">User Name<span style="color:red;">*</span> </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="UserName" id="UserName" placeholder="Username" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">User Role<span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="ddlUserRole">
+                                <option value="1">Admin</option>
+                                <option value="2">Master</option>
+                                <option value="3">User</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputemail" class="col-sm-4 control-label">Email<span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" name="Email" id="Email" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputemail" class="col-sm-4 control-label">Address </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="Email" id="txtstreet1" placeholder="Address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputemail" class="col-sm-4 control-label">State</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="Email" id="txtstate" maxlength="200" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-4 control-label">Password<span style="color:red;">*</span></label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer adminfooter">
+                <div class="col-sm-11">
+                    <div class="pull-right">
+                        <button type="button" id="btnSave" class="btn btn-info">Register</button>
+                        <button type="button" id="btnCancel" class="btn btn-info">Cancel</button>
+                        <input type="hidden" id="hdnUserID" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <style>
+            .rowsetcolor {
+                color: red;
+            }
+
+            .blck {
+                color: black;
+            }
+        </style>
+    </div>
+</body>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $("#btnCancel").click(function () {
+        Clearform();
+    });
+    $("#btnSave").click(function () {
+
+        validate();
+    });
+    function validate() {
+
+        var Boolean = false;
+        if ($("#UserFirstName").val() == "") {
+            Boolean = true;
+        }
+        else if ($("#UserLastName").val() == "") {
+            Boolean = true;
+        }
+        else if ($("#Email").val() == "") {
+
+            Boolean = true;
+        }
+        else if ($('#UserRoleID :selected').text() == "Select Position") {
+            Boolean = true;
+        } else if ($("#ddlUserRole").val() == null) {
+            Boolean = true;
+        }
+        else if ($("#Password").val().length <= 5) {
+            Boolean = true;
+        }
+
+        else {
+            Boolean = false;
+        }
+        if ((Boolean == false || Boolean == true) && $("#UserFirstName").val() == "") {
+            alert("Please enter first name.");
+        }
+        else if ((Boolean == false || Boolean == true) && $("#UserLastName").val() == "") {
+            alert("Please enter last name.");
+        }
+        else if ((Boolean == false || Boolean == true) && $("#Email").val() == "") {
+            alert("Please enter email id.");
+        }
+        else if ((Boolean == false || Boolean == true) && $('#UserRoleID :selected').text() == "Select Position") {
+            alert("Please select Position.");
+        }
+        else if ((Boolean == false || Boolean == true) && $("#ddlUserRole").val() == null) {
+            alert("Please select User Role.");
+        }
+        else if ((Boolean == false || Boolean == true) && $("#UserName").val() == "") {
+            alert("Please enter Username.");
+        }
+
+        else if ((Boolean == false || Boolean == true) && $("#Password").val().length <= 5) {
+            alert("Password must be more than five character.");
+        }
+        else if (Boolean == true) {
+            alert("Please provide proper details.");
+        }
+        else {
+            var data = new FormData();
+            data.append("UserRole", $("#ddlUserRole").val());
+            data.append("UserFirstName", $("#UserFirstName").val());
+            data.append("UserLastName", $("#UserLastName").val());
+            data.append("CellNo", $("#CellNo").val());
+            data.append("Email", $("#Email").val());
+            data.append("Address", $("#txtstreet1").val());
+            data.append("CityName", $("#txtcity").val());
+            data.append("StateName", $("#txtstate").val());
+            data.append("UserName", $("#UserName").val());
+            data.append("Password", $("#Password").val());
+            $.ajax({
+                url: '@Url.Action("CreateUsers")',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: data,
+                dataType: "json",
+                cache: false,
+            }).done(function (result) {
+                if (result == true) {
+
+                    $(".donemessage").css("visibility", "visible");
+                    if ($("#btnSave").text() == 'Register') {
+                        alert("User created successfully.");
+                        var url = "/Home/Login";
+                        window.location.href = url;
+                    }
+                    Clearform();
+                }
+                else {
+                    
+                    alert("Please enter unique username. This username is already exist.");
+                }
+            });
+        }
+    }
+    function Clearform() {
+        $("#UserFirstName").val('');
+        $("#UserLastName").val('');
+        $("#CellNo").val('');
+        $("#Email").val('');
+        $("#txtstreet1").val('');
+        $("#UserRoleID").val(null).trigger('change');
+        $("#ddlUserRole").val(1).trigger('change');
+        $('#UserName').val('');
+        $('#Password').val('');
+        $('#txtcity').val('');
+        $('#txtstate').val('');
+    }
+
+
+</script>

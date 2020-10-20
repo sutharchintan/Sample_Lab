@@ -1,0 +1,222 @@
+﻿@*@{
+        Layout = null;
+    }*@
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="M_Adnan">
+    <title>Login</title>
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="~/Front/rs-plugin/css/settings.css" media="screen" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Front/css/style.css" rel="stylesheet" />
+
+    <link href="~/Front/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Front/css/main.css" rel="stylesheet">
+    <link href="~/Front/css/responsive.css" rel="stylesheet">
+    <!-- JavaScripts -->
+    <!-- Date Picker -->
+    <!-- Daterange picker -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115338154-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115338154-8');
+    </script>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box box-default">
+        <form class="form-horizontal" id="frmLogin">
+
+            <div class="box-body">
+                <div class="row" style="padding-top: 200px;padding-left: 42px;"></div>
+                    <div class="row" style="border:solid;">
+                        <div class="col-sm-8">
+                            <img src="~/Images/medtest.jpg" style="height: 350px;width: 100%;" />
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="login-box-msg error-content message" id="loginmsg" style="margin: 0px;padding-bottom: 10px;color: red; visibility:hidden">  Incorrect username or password  </p>
+                            <div class="form-group has-feedback col-md-10">
+                                <select class="form-control" id="ddlUserRole">
+                                    <option value="1">Admin</option>
+                                    <option value="2">Master</option>
+                                    <option value="3">User</option>
+                                </select>
+                            </div>
+                            <div class="form-group has-feedback col-md-10">
+                                <input type="text" class="form-control clklogin" placeholder="User Name" id="UserName" autocomplete="off">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback fa fa-user"></span>
+                            </div>
+                            <div class="form-group has-feedback col-md-10">
+                                <input type="password" class="form-control clklogin" placeholder="Password" id="Password" autocomplete="off">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="row">
+
+                                <div class=" col-xs-12">
+                                    <a id="lnkregister" style="cursor:pointer;padding-top:10px">Register Here...</a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="btn btn-primary btn-block btn-flat pull-right" id="btnsubmit">Sign In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+        <!-- /.login-box-body -->
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+        $(document).ajaxStart(function () {
+            $(document.body).css({ 'cursor': 'wait' });
+            $("#btnsubmit").css({ 'cursor': 'wait' });
+        }).ajaxStop(function () {
+            $(document.body).css({ 'cursor': 'default' });
+            $("#btnsubmit").css({ 'cursor': 'default' });
+        });
+        $(document).ready(function () {
+
+        });
+
+
+        function validateEmail(sEmail) {
+            var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            if (filter.test(sEmail)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        $(".clklogin").keyup(function (e) {
+            if (e.keyCode == 13 && $("#UserName").val() == "" && $("#Password").val() == "") {
+                $("#loginmsg").css("visibility", "visible");
+            }
+            else if (e.keyCode == 13 && $("#UserName").val() != "" && $("#Password").val() != "") {
+                chechlogin();
+            }
+            else if (e.keyCode == 13) {
+                $("#loginmsg").css("visibility", "visible");
+            }
+        });
+
+        $("#btnsubmit").click(function () {
+
+            chechlogin();
+        });
+
+        function chechlogin() {
+            var data = new FormData();
+            data.append("UserName", $("#UserName").val());
+            data.append("Password", $("#Password").val());
+            data.append("Role", $("#ddlUserRole").val())
+            $.ajax({
+                url: '@Url.Action("UserLogin")',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: data,
+                dataType: "json",
+                cache: false,
+            }).done(function (result) {
+                if (result == "False") {
+                    $("#loginmsg").css("visibility", "visible");
+                }
+                else {
+                    var url = "/Home/Home";
+                    window.location.href = url;
+                }
+            });
+        }
+
+        function GetParameterValues(param) {
+
+            var returnTag = 0;
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (url.length == 1 && urlparam.length > 2) {
+                    for (var i = 0; i < urlparam.length; i++) {
+                        if (urlparam[i] == "") {
+                            urlparam[i] = "=";
+                        }
+                    }
+                }
+                if (urlparam[0] == param) {
+                    if (urlparam.length > 2) {
+                        for (var i = 2; i < urlparam.length; i++) {
+                            urlparam[1] += urlparam[i];
+                        }
+                    }
+                    return urlparam[1];
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+
+
+        function clearFileInput(id) {
+            var oldInput = document.getElementById(id);
+
+            var newInput = document.createElement("input");
+
+            newInput.type = "file";
+            newInput.id = oldInput.id;
+            newInput.name = oldInput.name;
+            newInput.className = oldInput.className;
+            newInput.style.cssText = oldInput.style.cssText;
+            // TODO: copy any other relevant attributes
+
+            oldInput.parentNode.replaceChild(newInput, oldInput);
+        }
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            function disableBack() { window.history.forward() }
+
+            window.onload = disableBack();
+            window.onload = disableForward();
+            window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
+        });
+
+
+        $("#lnkregister").click(function () {
+            var url = "/Home/Registration";
+            window.location.href = url;
+        });
+    </script>
+</body>
